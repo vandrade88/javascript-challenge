@@ -29,6 +29,10 @@ var button = d3.select("#filter-btn");
 // select the form to create an event handler
 var form = d3.select("form");
 
+// select the input elements and get the raw HTML node
+var inputDate = d3.select("#datetime");
+var inputCity = d3.select("#city");
+
 // create event handlers 
 button.on("click", runEnter);
 form.on("submit", runEnter);
@@ -38,21 +42,23 @@ function runEnter() {
 
   // Prevent the page from refreshing
   d3.event.preventDefault();
-  
-  // select the input element and get the raw HTML node
-  var inputElement = d3.select("#datetime");
 
   // select the value from the input field that the user enters
-  var inputValue = inputElement.property("value");
+  var inputValueDate = inputDate.property("value");
+  var inputValueCity = inputCity.property("value");
 
-  console.log(inputValue);
+  console.log(inputValueDate);
+  console.log(inputValueCity);
 
   // make copy of original data so our filtered data function doesn't affect original
   var new_data = tableData;
 
   // function to filter data by datetime
-  var filteredData = new_data.filter(item => item.datetime == inputValue);
+  var filteredDate = new_data.filter(item => item.datetime == inputValueDate);
+  var filteredCity = new_data.filter(item => item.city == inputValueCity);
+
 
   // call make_table function to create new table with filteredData
-  make_table(filteredData);
+  make_table(filteredDate);
+  make_table(filteredCity);
 }
