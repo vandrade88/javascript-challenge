@@ -5,8 +5,6 @@ var table = d3.select("tbody");
 
 // create function to create our table and append data to it
 function make_table(tableData) {
-    // remove HTML inside tbody object
-    table.html("");
     tableData.forEach((item) => {
         // append new rows into table
         var row = table.append("tr");
@@ -52,6 +50,9 @@ function runEnter() {
 
   // function to filter data by datetime
   var filteredData = new_data.filter(item => item.datetime == inputValue);
+  
+  // remove HTML inside tbody object
+  table.html("");
 
   // call make_table function to create new table with filteredData
   make_table(filteredData);
