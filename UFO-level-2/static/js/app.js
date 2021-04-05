@@ -28,6 +28,7 @@ var button = d3.select("#filter-btn");
 var inputDate = d3.select("#datetime");
 var inputCity = d3.select("#city");
 var inputState = d3.select("#state");
+var inputCountry = d3.select("#country");
 
 // create event handlers 
 button.on("click", runEnter);
@@ -42,10 +43,12 @@ function runEnter() {
   var inputValueDate = inputDate.property("value");
   var inputValueCity = inputCity.property("value").toLowerCase();
   var inputValueState = inputState.property("value").toLowerCase();
+  var inputValueCountry = inputCountry.property("value").toLowerCase();
 
   console.log(inputValueDate);
   console.log(inputValueCity);
   console.log(inputState);
+  console.log(inputCountry);
 
   // make copy of original data so our filtered data function doesn't affect original
   var new_data = tableData;
@@ -54,6 +57,7 @@ function runEnter() {
   var filteredDate = new_data.filter(item => item.datetime == inputValueDate);
   var filteredCity = new_data.filter(item => item.city == inputValueCity);
   var filteredState = new_data.filter(item => item.state == inputValueState);
+  var filteredCountry = new_data.filter(item => item.country == inputValueCountry);
   
   // remove HTML inside tbody object
   table.html("");
@@ -62,4 +66,5 @@ function runEnter() {
   make_table(filteredDate);
   make_table(filteredCity);
   make_table(filteredState);
+  make_table(filteredCountry);
 }
