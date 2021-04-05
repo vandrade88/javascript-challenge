@@ -48,10 +48,20 @@ function runEnter() {
   var inputValueShape = inputShape.property("value").toLowerCase();
 
   console.log(inputValueDate);
+  // clear the input value
+  d3.select("#datetime").node().value = "";
   console.log(inputValueCity);
+  // clear the input value
+  d3.select("#city").node().value = "";
   console.log(inputState);
+  // clear the input value
+  d3.select("#state").node().value = "";
   console.log(inputCountry);
+  // clear the input value
+  d3.select("#country").node().value = "";
   console.log(inputShape);
+  // clear the input value
+  d3.select("#shape").node().value = "";
 
   // make copy of original data so our filtered data function doesn't affect original
   var new_data = tableData;
