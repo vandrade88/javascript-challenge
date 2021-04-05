@@ -53,7 +53,7 @@ function runEnter() {
   // function to filter data by datetime
   var filteredData = new_data.filter(item => item.datetime == inputValue);
   
-  // remove HTML inside tbody object
+  // remove HTML inside table
   table.html("");
 
   // call make_table function to create new table with filteredData
