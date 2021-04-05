@@ -43,7 +43,9 @@ function runEnter() {
   // select the value from the input field that the user enters
   var inputValue = inputElement.property("value");
 
+  // print console log and clear input values
   console.log(inputValue);
+  d3.select("#datetime").node().value = "";
 
   // make copy of original data so our filtered data function doesn't affect original
   var new_data = tableData;
